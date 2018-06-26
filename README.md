@@ -77,35 +77,39 @@ my-app/
         main.63d1dafd.css (21.97 KB)
       media/
         ...
+  deploy/
+    widget.js
+    widget.css
+    minified/
+      widget-minigied.js
+      widget-minigied.css
+    screenshots/
+      js.png
+      css.png
+      success.png
 ```
 
-## Deploy
+## Optimized Production Build
 
 The optimized production build can be found in /build folder ready for deployment
 
 
-## Prototype distribution to all merchants
+## Prototype Distribution (to merchants)
 
-In order to use the widget in your App you should:
+In order to distribute the widget to the merchants, you should copy the contents of the **deploy/minified** folder into the HTML document root directory and then add the following two lines to product-page.html:
 
-Copy the component into a JS file
+```<link href="widget-minified.css" rel="stylesheet">```
 
-```import CheckoutWidget from '...FOLDER.../CheckoutWidget'```
+in HTML document <head>, just after the other stylesheet links:
+![GitHub Logo](/deploy/screenshots/css.png)
 
-in the component you want to use it
+```<script type= "text/javascript" src="widget-minified.js"></script>```
 
-The CheckoutWidget component requires two parameters that should be passed to it
-  * instalments (array)
-  * sendEvents (function)
+at the end of the HTML document:
+![GitHub Logo](/deploy/screenshots/js.png)
 
-For example:
-```
-<CheckoutWidget instalments={instalments} sendEvents={sendEvents} />
-```
-
-The modal used in the CheckoutWidget is a third-party library and needs to be installed in your project folder:
-
-```npm install --save react-modal```
+The Widget should successfully appear under the "Add to the cart" button:
+![GitHub Logo](/deploy/screenshots/success.png)
 
 
 ## NOTES
